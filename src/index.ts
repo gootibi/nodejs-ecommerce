@@ -1,9 +1,8 @@
 import { PrismaClient } from '@prisma/client';
 import express, { Express } from 'express';
+import { errorMiddleware } from './middlewares/errors';
 import rootRouter from './routes';
 import { PORT } from './secrets';
-import { errorMiddleware } from './middlewares/errors';
-import { SignUpSchema } from './schema/users';
 
 const app: Express = express();
 
