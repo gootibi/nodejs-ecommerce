@@ -23,6 +23,7 @@ export default rootRouter;
     2. Order management:
         a. List all orders (filter on status)
         b. Change order status
+        c. List all orders of give user
 
     3. Products:
         a. Search API for products (for both users and admins) -> full text search
