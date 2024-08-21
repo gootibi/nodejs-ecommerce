@@ -85,3 +85,23 @@ export const getProductById = async (req: Request, res: Response) => {
         throw new BadRequestsException('Product not found', ErrorCode.PRODUCT_NOT_FOUND);
     }
 };
+
+export const searchProducts = async (req: Request, res: Response) => {
+    // Implement pagination here
+
+    const products = await prismaClient.product.findMany({
+        where: {
+            name: {
+                search: req.query.q.toString(),
+            },
+            description: {
+                search: req.query.q.toString(),
+            },
+            tags: {
+                search: req.query.q.toString(),
+            },
+        },
+    });
+
+    res.status(200).json(products);
+};
